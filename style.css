@@ -24,23 +24,26 @@ a {
   width: 100%;
 }
 
-/* LEFT PANEL (Typewriter) */
+/* LEFT PANEL (Typewriter + BG) */
 .left-panel {
   flex: 1;
-  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 2rem;
   text-align: center;
+  color: white;
 }
 
 .typewriter-wrapper {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #e65100;
+  color: #ffae22;
   position: relative;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 1.5rem 2rem;
+  border-radius: 10px;
 }
 
 #typewriter {
@@ -56,7 +59,7 @@ a {
 .subtitle {
   margin-top: 1.2rem;
   font-size: 1.2rem;
-  color: #5c4033;
+  color: #f8f8f8;
 }
 
 @keyframes blink {
@@ -68,7 +71,7 @@ a {
 /* RIGHT PANEL (Auth Forms) */
 .right-panel {
   flex: 1;
-  background: #ffffff;
+  background: #fffbe7;
   padding: 3rem 2rem;
   display: flex;
   flex-direction: column;
@@ -76,60 +79,77 @@ a {
   align-items: center;
 }
 
+.auth-box {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  max-width: 360px;
+  width: 100%;
+}
+
+.auth-box h2 {
+  color: #6a1b9a;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.auth-box input {
+  width: 100%;
+  padding: 0.7rem;
+  margin: 0.6rem 0;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #f9f9ff;
+}
+
+.auth-box button {
+  width: 100%;
+  padding: 0.7rem;
+  background: #e65100;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.auth-box button:hover {
+  background: #bf360c;
+}
+
 .toggle-buttons {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  justify-content: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
 }
 
 .toggle-buttons button {
-  background: #6a1b9a;
-  color: white;
-  padding: 10px 20px;
+  background-color: #ff6f00;
   border: none;
-  border-radius: 5px;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.2s ease;
 }
 
 .toggle-buttons button:hover {
-  background: #4a148c;
-}
-
-.right-panel h2 {
-  color: #6a1b9a;
-  margin-bottom: 10px;
-}
-
-.right-panel input {
-  width: 100%;
-  max-width: 300px;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-.right-panel button {
-  width: 100%;
-  max-width: 300px;
-  padding: 10px;
-  background-color: #00bfa5;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-bottom: 10px;
-}
-
-.right-panel button:hover {
-  background-color: #009e88;
+  background-color: #e65100;
 }
 
 #authMessage {
-  color: red;
+  margin-top: 1rem;
+  color: #d32f2f;
+  text-align: center;
   font-weight: bold;
-  margin-top: 10px;
 }
 
 /* ========== DASHBOARD ========== */
