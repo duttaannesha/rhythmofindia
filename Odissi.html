@@ -2,45 +2,54 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Odissi Lessons – Rhythm of India</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <style>
-    /* Ensure page content sits below the fixed nav */
     body {
-      padding-top: 64px;
-      background: linear-gradient(120deg, #fffbe7 0%, #ffe0a3 100%);
+      padding-top: 72px;
+      background: #f4e9ff;
     }
 
-    /* Page title styling */
     .bh-title {
       text-align: center;
       font-size: 2.5rem;
-      color: #ff6f00;
-      margin: 2rem 0 1rem;
-      letter-spacing: 2px;
-      text-shadow: 0 2px 8px rgba(255, 236, 188, 0.2);
+      color: #6a1b9a;
+      margin: 1rem 0 1rem;
+      letter-spacing: 1px;
     }
 
-    /* Split‐layout card */
+    .back-btn {
+      display: inline-block;
+      background: #6a1b9a;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-bottom: 0.75rem;
+      transition: background 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background: #4a148c;
+    }
+
     .lesson-split {
       display: flex;
       width: 100%;
       max-width: 1200px;
       margin: 0 auto 3rem;
       background: #fff;
-      /* white card background */
       border-radius: .9em;
       overflow: hidden;
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
     }
 
-    /* Left menu panel on white */
     .lesson-menu {
       flex: 0 0 260px;
       background: #fff;
-      /* white */
       border-right: 1.5px solid #ffe0a3;
       display: flex;
       flex-direction: column;
@@ -56,7 +65,7 @@
       color: #444;
       cursor: pointer;
       border-left: 4px solid transparent;
-      transition: background .13s, color .13s;
+      transition: background .2s, color .2s;
     }
 
     .lesson-menu button:hover {
@@ -69,19 +78,16 @@
       border-left-color: #ff6f00;
     }
 
-    /* Right content area on white */
     .lesson-content {
       flex: 1;
       padding: 2.5rem;
       background: #fff;
-      /* white */
-      overflow-y: auto;
     }
 
     .lesson-content h2 {
-      color: #ff6f00;
+      color: #6a1b9a;
       text-align: center;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
 
     .lesson-video-area {
@@ -104,9 +110,9 @@
     .lesson-content p,
     .lesson-content ul,
     .lesson-content ol {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 1rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
@@ -114,12 +120,56 @@
 
     .lesson-content ul,
     .lesson-content ol {
-      padding-left: 1.2rem;
+      padding-left: 1.5rem;
       text-align: left;
     }
 
-    /* Responsive adjustments */
-    @media(max-width:900px) {
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: #ffd54f;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #d84315;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .tabs a,
+    .tabs button {
+      font-weight: bold;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #5d4037;
+    }
+
+    .tabs button {
+      background: #d84315;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 5px;
+    }
+
+    .tabs button:hover {
+      background: #bf360c;
+    }
+
+    @media(max-width: 900px) {
       .lesson-split {
         flex-direction: column;
       }
@@ -144,7 +194,7 @@
       }
     }
 
-    @media(max-width:600px) {
+    @media(max-width: 600px) {
       .bh-title {
         font-size: 2rem;
       }
@@ -162,79 +212,28 @@
 </head>
 
 <body>
-  <!-- Sticky nav (identical to your landing page) -->
+  <!-- Top Navigation -->
   <nav class="top-nav">
     <div class="logo">🎵 Rhythm of India</div>
     <div class="tabs">
-      <a href="index.html#dances">Dances</a>
-      <a href="index.html#songs">Songs</a>
-      <a href="index.html#culture">Culture</a>
+      <button id="logoutBtn">Logout</button>
     </div>
   </nav>
 
-  <!-- Page title -->
+  <!-- Back to Dashboard & Title -->
+  <div style="max-width: 1200px; margin: 1.5rem auto 0; padding: 0 1rem;">
+    <a href="dashboard.html" class="back-btn">← Back to Dashboard</a>
+  </div>
   <div class="bh-title">Odissi Lessons</div>
 
-  <!-- Split container -->
+  <!-- Lesson Viewer -->
   <div class="lesson-split">
-    <!-- Left menu -->
-    <div class="lesson-menu" id="lessonMenu">
-      <button class="selected">Introduction</button>
-      <button>History</button>
-      <button>Features</button>
-      <button>Core Lessons</button>
-      <button>Teaching Structure</button>
-      <button>Practice &amp; Tips</button>
-      <button>Lesson 1: Namaskar &amp; Chowka</button>
-      <button>Lesson 2: Tribhanga &amp; Bhangis</button>
-      <button>Lesson 3: Mudras &amp; Hasta</button>
-      <button>Lesson 4: Abhinaya &amp; Expression</button>
-      <button>Lesson 5: Odissi Repertoire</button>
-    </div>
-    <!-- Right content -->
+    <div class="lesson-menu" id="lessonMenu"></div>
     <div class="lesson-content" id="lessonContent"></div>
   </div>
 
-  <script>
-    const lessons = [
-      { title: "Introduction", video: "https://www.youtube.com/embed/L7L5Ibc3Y88", desc: `<p><strong>Odissi</strong> is Odisha’s classical dance…</p><ul><li>Temple origins</li><li>Sculptural poses</li></ul>` },
-      { title: "History", video: "https://www.youtube.com/embed/2kZpY_GwIbI", desc: `<p>Depicted in temple carvings…</p>` },
-      { title: "Features", video: "https://www.youtube.com/embed/jXFD4kg30uA", desc: `<ul><li>Chowka stance</li><li>Tribhanga curves</li></ul>` },
-      { title: "Core Lessons", video: "https://www.youtube.com/embed/0oDT-6Clj0w", desc: `<ol><li>Namaskar & Chowka</li><li>Tribhanga & Bhangis</li></ol>` },
-      { title: "Teaching Structure", video: "https://www.youtube.com/embed/bKUR9wA-kRk", desc: `<ul><li>Adavu drills</li><li>Mudra practice</li></ul>` },
-      { title: "Practice & Tips", video: "https://www.youtube.com/embed/SC7jX5K1t6I", desc: `<ul><li>Daily practice</li><li>Record & refine</li></ul>` },
-      { title: "Lesson 1: Namaskar & Chowka", video: "https://www.youtube.com/embed/9TnkYk9P2g0", desc: `<p>Foundational salutation & stance.</p>` },
-      { title: "Lesson 2: Tribhanga & Bhangis", video: "https://www.youtube.com/embed/CtfS7DFvVsg", desc: `<p>Triple-bend elegance.</p>` },
-      { title: "Lesson 3: Mudras & Hasta", video: "https://www.youtube.com/embed/HBlyRjIrfgM", desc: `<p>Expressive hand gestures.</p>` },
-      { title: "Lesson 4: Abhinaya & Expression", video: "https://www.youtube.com/embed/gpFTKbWscso", desc: `<p>Emotive storytelling.</p>` },
-      { title: "Lesson 5: Odissi Repertoire", video: "https://www.youtube.com/embed/lMHsA_Vt6VM", desc: `<ol><li>Mangalacharan</li><li>Pallavi</li><li>Moksha</li></ol>` }
-    ];
-
-    const menuBtns = Array.from(document.querySelectorAll('#lessonMenu button'));
-    const contentEl = document.getElementById('lessonContent');
-
-    function loadLesson(i) {
-      const L = lessons[i];
-      contentEl.innerHTML = `
-        <h2>${L.title}</h2>
-        <div class="lesson-video-area">
-          <iframe src="${L.video}" frameborder="0" allowfullscreen></iframe>
-        </div>
-        ${L.desc}
-      `;
-    }
-
-    menuBtns.forEach((btn, idx) => {
-      btn.addEventListener('click', () => {
-        menuBtns.forEach(b => b.classList.remove('selected'));
-        btn.classList.add('selected');
-        loadLesson(idx);
-      });
-    });
-
-    // Initial load
-    loadLesson(0);
-  </script>
+  <!-- Script to load lesson data -->
+  <script type="module" src="odissi-lessons.js"></script>
 </body>
 
 </html>

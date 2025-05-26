@@ -4,68 +4,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rhythm of India</title>
+  <title>Rhythm of India - Welcome</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <!-- Navigation -->
-  <nav class="top-nav">
-    <div class="logo">🎵 Rhythm of India</div>
-    <div class="tabs">
-      <a href="#dances">Dances</a>
-      <a href="#songs">Songs</a>
-
-    </div>
-  </nav>
-
-  <!-- Landing -->
-  <section class="landing">
-    <div class="landing-inner">
+  <section class="landing-page">
+    <div class="left-panel">
       <div class="typewriter-wrapper">
         <span id="typewriter"></span>
         <span class="typewriter-ghost">Rhythm of India</span>
+        <p class="subtitle">Dancing • Songs • Cultural Heritage</p>
       </div>
-      <p class="subtitle">Dancing • Songs • Cultural Heritage</p>
+    </div>
+    <div class="right-panel">
+      <div class="toggle-buttons">
+        <button id="showLogin">Login</button>
+        <button id="showSignup">Signup</button>
+      </div>
+
+      <div id="loginForm">
+        <h2>Login</h2>
+        <input type="email" id="loginEmail" placeholder="Email">
+        <input type="password" id="loginPassword" placeholder="Password">
+        <button onclick="login()">Login</button>
+      </div>
+
+      <div id="signupForm" style="display:none;">
+        <h2>Signup</h2>
+        <input type="email" id="signupEmail" placeholder="Email">
+        <input type="password" id="signupPassword" placeholder="Password">
+        <button onclick="signup()">Signup</button>
+      </div>
+
+      <p id="authMessage"></p>
     </div>
   </section>
-
-  <!-- Dances -->
-  <section id="dances" class="dances">
-    <h2>Indian Dances</h2>
-    <div class="dance-grid">
-      <a href="Odissi.html" class="dance-card-link">
-        <div class="dance-card">
-          <img src="oddisi.png" alt="Odissi" />
-          <h3>Odissi</h3>
-          <p>Fluid movements and sculpturesque poses from Odisha.</p>
-        </div>
-      </a>
-      <a href="bharatanatyam.html" class="dance-card-link">
-        <div class="dance-card">
-          <img src="bharatanatyam.png" alt="Bharatanatyam" />
-          <h3>Bharatanatyam</h3>
-          <p>Graceful hand gestures and storytelling from Tamil Nadu.</p>
-        </div>
-      </a>
-      <a href="Kathak.html" class="dance-card-link">
-        <div class="dance-card">
-          <img src="kathak.png" alt="Kathak" />
-          <h3>Kathak</h3>
-          <p>Spins and intricate footwork from North India.</p>
-        </div>
-      </a>
-      <a href="Kuchipudi.html" class="dance-card-link">
-        <div class="dance-card">
-          <img src="kuchipudi.png" alt="Kuchipudi" />
-          <h3>Kuchipudi</h3>
-          <p>Fast rhythms and dramatic storytelling from Andhra Pradesh.</p>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 
 </html>

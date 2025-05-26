@@ -2,45 +2,54 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bharatanatyam Lessons – Rhythm of India</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <style>
-    /* Push content below fixed nav */
     body {
-      padding-top: 64px;
-      background: linear-gradient(120deg, #fffbe7 0%, #ffe0a3 100%);
+      padding-top: 72px;
+      background: #fffbe7;
     }
 
-    /* Page title */
     .bh-title {
       text-align: center;
       font-size: 2.5rem;
       color: #ff6f00;
-      margin: 2rem 0 1rem;
-      letter-spacing: 2px;
-      text-shadow: 0 2px 8px rgba(255, 236, 188, 0.2);
+      margin: 1rem 0 1rem;
+      letter-spacing: 1px;
     }
 
-    /* Split container */
+    .back-btn {
+      display: inline-block;
+      background: #ff6f00;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-bottom: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background: #e65100;
+    }
+
     .lesson-split {
       display: flex;
       width: 100%;
       max-width: 1200px;
       margin: 0 auto 3rem;
       background: #fff;
-      /* white card */
       border-radius: .9em;
       overflow: hidden;
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
     }
 
-    /* Left menu */
     .lesson-menu {
       flex: 0 0 260px;
       background: #fff;
-      /* white */
       border-right: 1.5px solid #ffe0a3;
       display: flex;
       flex-direction: column;
@@ -56,11 +65,11 @@
       color: #444;
       cursor: pointer;
       border-left: 4px solid transparent;
-      transition: background .13s, color .13s;
+      transition: background .2s, color .2s;
     }
 
     .lesson-menu button:hover {
-      background: #ffecbc;
+      background: #fff0c1;
     }
 
     .lesson-menu button.selected {
@@ -69,25 +78,24 @@
       border-left-color: #ff6f00;
     }
 
-    /* Right content */
     .lesson-content {
       flex: 1;
       padding: 2.5rem;
       background: #fff;
-      /* white */
-      overflow-y: auto;
     }
 
     .lesson-content h2 {
       color: #ff6f00;
       text-align: center;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
 
     .lesson-video-area {
+      position: relative;
       width: 100%;
-      max-width: 600px;
-      aspect-ratio: 16/9;
+      max-width: 560px;
+      padding-bottom: 42%;
+      /* shorter height than 16:9 */
       margin: 0 auto 1.5rem;
       background: #000;
       border-radius: 12px;
@@ -96,17 +104,21 @@
     }
 
     .lesson-video-area iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      border: none;
     }
+
 
     .lesson-content p,
     .lesson-content ul,
     .lesson-content ol {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 1rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
@@ -114,12 +126,56 @@
 
     .lesson-content ul,
     .lesson-content ol {
-      padding-left: 1.2rem;
+      padding-left: 1.5rem;
       text-align: left;
     }
 
-    /* Responsive */
-    @media(max-width:900px) {
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: #ffd54f;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #d84315;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .tabs a,
+    .tabs button {
+      font-weight: bold;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #5d4037;
+    }
+
+    .tabs button {
+      background: #d84315;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 5px;
+    }
+
+    .tabs button:hover {
+      background: #bf360c;
+    }
+
+    @media(max-width: 900px) {
       .lesson-split {
         flex-direction: column;
       }
@@ -144,7 +200,7 @@
       }
     }
 
-    @media(max-width:600px) {
+    @media(max-width: 600px) {
       .bh-title {
         font-size: 2rem;
       }
@@ -162,165 +218,27 @@
 </head>
 
 <body>
-  <!-- Main Nav -->
+  <!-- Navigation -->
   <nav class="top-nav">
     <div class="logo">🎵 Rhythm of India</div>
     <div class="tabs">
-      <a href="index.html#dances">Dances</a>
-      <a href="index.html#songs">Songs</a>
-      <a href="index.html#culture">Culture</a>
+      <button id="logoutBtn">Logout</button>
     </div>
   </nav>
 
-  <!-- Title -->
+  <!-- Back + Title -->
+  <div style="max-width: 1200px; margin: 1.5rem auto 0; padding: 0 1rem;">
+    <a href="dashboard.html" class="back-btn">← Back to Dashboard</a>
+  </div>
   <div class="bh-title">Bharatanatyam Lessons</div>
 
-  <!-- Split Layout -->
+  <!-- Lessons Layout -->
   <div class="lesson-split">
-    <div class="lesson-menu" id="lessonMenu">
-      <button class="selected">Introduction</button>
-      <button>History</button>
-      <button>Features</button>
-      <button>Core Lessons</button>
-      <button>Teaching Structure</button>
-      <button>Practice &amp; Tips</button>
-      <button>Lesson 1: Alarippu</button>
-      <button>Lesson 2: Jatiswaram</button>
-      <button>Lesson 3: Varnam</button>
-      <button>Lesson 4: Padam</button>
-      <button>Lesson 5: Tillana</button>
-    </div>
+    <div class="lesson-menu" id="lessonMenu"></div>
     <div class="lesson-content" id="lessonContent"></div>
   </div>
 
-  <script>
-    const lessons = [
-      {
-        title: "Introduction",
-        video: "https://www.youtube.com/embed/XXXXXXX",
-        desc: `
-          <p><strong>Bharatanatyam</strong> is a classical dance from Tamil Nadu, known for its fixed torso, bent legs, and expressive gestures.</p>
-          <ul>
-            <li>Temple origins</li>
-            <li>Revived by Rukmini Devi Arundale</li>
-            <li>Blends Nritta & Abhinaya</li>
-          </ul>
-        `
-      },
-      {
-        title: "History",
-        video: "https://www.youtube.com/embed/YYYYYYY",
-        desc: `
-          <p>Originating in the Devadasi tradition, Bharatanatyam was standardized in the 20th century and gained global fame.</p>
-          <ul>
-            <li>Featured in Natya Shastra</li>
-            <li>Performed in temples and courts</li>
-            <li>Modern revival movement</li>
-          </ul>
-        `
-      },
-      {
-        title: "Features",
-        video: "https://www.youtube.com/embed/ZZZZZZZ",
-        desc: `
-          <ul>
-            <li>Alarippu: Invocation piece</li>
-            <li>Jatiswaram: Pure dance</li>
-            <li>Varnam: Expressive centerpiece</li>
-            <li>Padam: Lyrical storytelling</li>
-            <li>Tillana: Rhythmic finale</li>
-          </ul>
-        `
-      },
-      {
-        title: "Core Lessons",
-        video: "https://www.youtube.com/embed/AAAAAAA",
-        desc: `
-          <ol>
-            <li>Adavus (basic steps)</li>
-            <li>Mudras (hand gestures)</li>
-            <li>Abhinaya (expression)</li>
-            <li>Tala (rhythm)</li>
-            <li>Margam (repertoire)</li>
-          </ol>
-        `
-      },
-      {
-        title: "Teaching Structure",
-        video: "https://www.youtube.com/embed/BBBBBBB",
-        desc: `
-          <ul>
-            <li>Daily Adavu practice</li>
-            <li>Mudra workshops</li>
-            <li>Abhinaya training</li>
-            <li>Repertoire sequence</li>
-          </ul>
-        `
-      },
-      {
-        title: "Practice & Tips",
-        video: "https://www.youtube.com/embed/CCCCCCC",
-        desc: `
-          <ul>
-            <li>Warm up with Alarippu</li>
-            <li>Record yourself for feedback</li>
-            <li>Study expert performances</li>
-            <li>Balance speed and clarity</li>
-          </ul>
-        `
-      },
-      {
-        title: "Lesson 1: Alarippu",
-        video: "https://www.youtube.com/embed/DDDDDDD",
-        desc: `<p>Alarippu is the invocatory piece focusing on warm-up and posture.</p>`
-      },
-      {
-        title: "Lesson 2: Jatiswaram",
-        video: "https://www.youtube.com/embed/EEEEEEE",
-        desc: `<p>Jatiswaram explores rhythmic patterns with swara sequences.</p>`
-      },
-      {
-        title: "Lesson 3: Varnam",
-        video: "https://www.youtube.com/embed/FFFFFFF",
-        desc: `<p>Varnam combines pure dance and expressive abhinaya.</p>`
-      },
-      {
-        title: "Lesson 4: Padam",
-        video: "https://www.youtube.com/embed/GGGGGGG",
-        desc: `<p>Padam focuses on emotive storytelling through lyric-based pieces.</p>`
-      },
-      {
-        title: "Lesson 5: Tillana",
-        video: "https://www.youtube.com/embed/HHHHHHH",
-        desc: `<p>Tillana is the brisk, rhythmic finale showcasing footwork.</p>`
-      }
-    ];
-
-    const menuBtns = Array.from(document.querySelectorAll('#lessonMenu button'));
-    const contentEl = document.getElementById('lessonContent');
-
-    function loadLesson(i) {
-      const L = lessons[i];
-      contentEl.innerHTML = `
-        <h2>${L.title}</h2>
-        <div class="lesson-video-area">
-          <iframe src="${L.video}" frameborder="0" allowfullscreen></iframe>
-        </div>
-        ${L.desc}
-      `;
-    }
-
-    menuBtns.forEach((btn, i) => {
-      btn.addEventListener('click', () => {
-        menuBtns.forEach(b => b.classList.remove('selected'));
-        btn.classList.add('selected');
-        loadLesson(i);
-      });
-    });
-
-    // initial
-    loadLesson(0);
-  </script>
+  <script type="module" src="bharatanatyam.js"></script>
 </body>
 
 </html>
